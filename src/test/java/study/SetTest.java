@@ -24,18 +24,18 @@ public class SetTest {
         numbers.add(3);
     }
 
-    @Test
     @DisplayName("size()")
+    @Test
     void size() {
         assertThat(numbers.size()).isEqualTo(3);
     }
 
+    @DisplayName("contains()")
     @ParameterizedTest
     @CsvSource(
             value = {"1:true", "2:true", "3:true", "4:false", "5:false"},
             delimiter = ':'
     )
-    @DisplayName("contains()")
     void contains(int input, boolean expected) {
         assertThat(numbers.contains(input)).isEqualTo(expected);
     }
