@@ -1,6 +1,20 @@
 ## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
 
 ---
+## 📌 미션 진행 현황
+
+### 📍 학습테스트 실습
+- String, Set 메서드의 단위 테스트 구현
+- JUnit의 어노테이션 활용
+- assertj의 api 활용
+
+### 📍 문자열 계산기
+- 사칙연산이 가능한 Calculator 클래스 구현
+- Calculator를 상속받는 문자열 계산기 구현
+  - 입력받은 문자열을 연산자, 피연산자의 배열로 저장
+  - 배열을 앞에서부터 순서대로 계산하여 총 결과값을 구할 수 있다.
+
+---
 ## 학습 효과를 높이기 위해 추천하는 미션 진행 방법
 
 ---
