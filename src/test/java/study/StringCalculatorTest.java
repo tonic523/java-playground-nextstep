@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Arrays;
@@ -23,5 +24,17 @@ public class StringCalculatorTest {
     @ValueSource(strings = {"2", "+", "3", "*", "4", "/", "5"})
     void saveInput(String str) {
         assertThat(Arrays.asList(stringCalculator.getBuffer()).contains(str)).isTrue();
+    }
+
+    @DisplayName("사칙연산에 따른 계산")
+    @ParameterizedTest
+    @CsvSource(
+            value = { "+:12", "-:8", "*:20", "/:5" },
+            delimiter = ':'
+    )
+    void calculate(String type, int result) {
+        int a = 10;
+        int b = 2;
+        assertThat(stringCalculator.calculate(a, b, type)).isEqualTo(result);
     }
 }
