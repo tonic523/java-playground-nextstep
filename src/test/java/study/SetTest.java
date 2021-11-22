@@ -31,7 +31,7 @@ public class SetTest {
     }
 
     @DisplayName("contains()")
-    @ParameterizedTest
+    @ParameterizedTest(name = "{0} 이면 {1}")
     @CsvSource(
             value = {"1:true", "2:true", "3:true", "4:false", "5:false"},
             delimiter = ':'
