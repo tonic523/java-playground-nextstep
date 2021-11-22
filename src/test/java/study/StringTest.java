@@ -10,14 +10,14 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class StringTest {
     @Test
-    @DisplayName("replace() 테스트")
+    @DisplayName("replace()")
     void replace() {
         String actual = "abc".replace("b", "d");
         assertThat(actual).isEqualTo("adc");
     }
 
     @Nested
-    @DisplayName("split() 테스트")
+    @DisplayName("split()")
     class Split {
         @Test
         @DisplayName("잘 분리됬는지 확인")
@@ -35,14 +35,14 @@ public class StringTest {
     }
 
     @Test
-    @DisplayName("substring() 테스트")
+    @DisplayName("substring()")
     void substring() {
         String actual = "(1,2)".substring(1, 4);
         assertThat(actual).isEqualTo("1,2");
     }
 
     @Nested
-    @DisplayName("charAt() 테스트")
+    @DisplayName("charAt()")
     class CharAt {
         @Test
         @DisplayName("위치 값을 벗어나지 않을 때")
