@@ -28,4 +28,11 @@ public class StringCalculatorTest {
         int b = 2;
         assertThat(stringCalculator.calculate(a, b, type)).isEqualTo(result);
     }
+
+    @DisplayName("문자열 계산")
+    @Test
+    void stringCalculate() {
+        stringCalculator.saveInput("2 + 3 * 4 / 5");
+        assertThat(stringCalculator.stringCalculate()).isEqualTo(4);
+    }
 }
