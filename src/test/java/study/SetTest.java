@@ -1,6 +1,7 @@
 package study;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,6 +22,7 @@ public class SetTest {
     }
 
     @Test
+    @DisplayName("size() 테스트")
     void size() {
         assertThat(numbers.size()).isEqualTo(3);
     }

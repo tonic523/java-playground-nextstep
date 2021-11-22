@@ -10,24 +10,24 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class StringTest {
     @Test
-    @DisplayName("문자값 교체")
+    @DisplayName("replace() 테스트")
     void replace() {
         String actual = "abc".replace("b", "d");
         assertThat(actual).isEqualTo("adc");
     }
 
     @Nested
-    @DisplayName("분리")
+    @DisplayName("split() 테스트")
     class Split {
         @Test
-        @DisplayName("들어온 값에 따라 분리할 때")
+        @DisplayName("잘 분리됬는지 확인")
         void contains() {
             String[] actual = "1,2".split(",");
             assertThat(actual).contains("1", "2");
         }
 
         @Test
-        @DisplayName("특정한 값만 포함해야 될 때")
+        @DisplayName("특정한 값만 포함되있는지")
         void containsExactly() {
             String[] actual = "1".split(",");
             assertThat(actual).containsExactly("1");
@@ -35,14 +35,14 @@ public class StringTest {
     }
 
     @Test
-    @DisplayName("문자열 특정 구간 잘라내기")
+    @DisplayName("substring() 테스트")
     void substring() {
         String actual = "(1,2)".substring(1, 4);
         assertThat(actual).isEqualTo("1,2");
     }
 
     @Nested
-    @DisplayName("문자열에서 특정 위치의 문자 가져오기")
+    @DisplayName("charAt() 테스트")
     class CharAt {
         @Test
         @DisplayName("위치 값을 벗어나지 않을 때")
