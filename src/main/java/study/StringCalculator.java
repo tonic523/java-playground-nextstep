@@ -19,7 +19,7 @@ public class StringCalculator extends Calculator {
         return buffer;
     }
 
-    public int result() {
+    public int stringCalculate() {
         int result = Integer.valueOf(buffer[0]);
         for (int i = 1; i < buffer.length; i++) {
             int number = Integer.valueOf(buffer[i+1]);
@@ -37,9 +37,5 @@ public class StringCalculator extends Calculator {
             case "/" : return divide(a, b);
         }
         return 0;
-    }
-
-    public String[] getBuffer() {
-        return buffer;
     }
 }
