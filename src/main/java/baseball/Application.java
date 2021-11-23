@@ -2,12 +2,11 @@ package baseball;
 
 import java.util.Scanner;
 
-public class Game {
-    private Player computer;
-    private static Scanner scanner = new Scanner(System.in);
+public class Application {
+    static Scanner scanner = new Scanner(System.in);
 
-    public Game(Player computer) {
-        this.computer = computer;
+    public static void main(String[] args) {
+
     }
 
     public int[] convertToNumbers(String str) {
