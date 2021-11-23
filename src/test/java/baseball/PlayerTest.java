@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class PlayerTest {
@@ -18,11 +16,8 @@ public class PlayerTest {
 
     @BeforeEach
     void setUp() {
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(5);
-        list.add(9);
-        player = new Player(list);
+        int[] arr = {1, 5, 9};
+        player = new Player(arr);
     }
 
     @DisplayName("힌트 제공")
@@ -51,11 +46,11 @@ public class PlayerTest {
                 delimiter = ':'
         )
         void getHint(String number, String type) {
-            List<Integer> list = new ArrayList<>();
+            int[] arr = new int[3];
             for (int i = 0; i < number.length(); i++) {
-                list.add(number.charAt(i) - '0');
+                arr[i] = number.charAt(i) - '0';
             }
-            Map<String, Integer> hint = player.getHint(list);
+            Map<String, Integer> hint = player.getHint(arr);
             assertThat(hint.get(type)).isEqualTo(3);
         }
     }

@@ -1,32 +1,33 @@
 package baseball;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class Player {
     static final int SIZE = 3;
-    private List<Integer> numbers = new ArrayList<Integer>(SIZE);
+    private int[] numbers = new int[SIZE];
 
     {
-        Arrays.fill(numbers.toArray(), 0);
+        Arrays.fill(numbers, 0);
     }
 
-    public Player(List<Integer> numbers) {
+    public Player(int[] numbers) {
         setNumbers(numbers);
     }
 
     public Player() {};
 
-    public void setNumbers(List<Integer> numbers) {
+    public void setNumbers(int[] numbers) {
         this.numbers = numbers;
     }
 
-    public Map<String, Integer> getHint(List<Integer> numbers) {
+    public Map<String, Integer> getHint(int[] numbers) {
         Map<String, Integer> hint = new HashMap<>();
         hint.put("strike", 0);
         hint.put("ball", 0);
         hint.put("nothing", 0);
         for (int i = 0; i < SIZE; i++) {
-            int number = numbers.get(i);
+            int number = numbers[i];
             String type = getType(number, i);
             hint.replace(type, hint.get(type) + 1);
         }
@@ -34,14 +35,14 @@ public class Player {
     }
 
     public String getType(int number, int index) {
-        if (numbers.contains(number)) {
+        if (IntStream.of(numbers).anyMatch(x -> x == number)) {
             return isBallStrike(number, index);
         }
         return "nothing";
     }
 
     public String isBallStrike(int number, int index) {
-        if (index == numbers.indexOf(number)) {
+        if (number == numbers[index]) {
             return "strike";
         }
         return "ball";
