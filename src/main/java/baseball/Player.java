@@ -4,13 +4,14 @@ import java.util.*;
 
 public class Player {
     private static final int SIZE = 3;
-    private List<Integer> numbers = new ArrayList<Integer>();
+    private List<Integer> numbers = new ArrayList<Integer>(SIZE);
 
-    public Player(List<Integer> numbers) {
-        this.numbers = numbers;
+    {
+        Arrays.fill(numbers.toArray(), 0);
     }
 
-    public Player() {
+    public Player(List<Integer> numbers) {
+        setNumbers(numbers);
     }
 
     public void setNumbers(List<Integer> numbers) {
