@@ -7,18 +7,27 @@ public class Player {
     static final int SIZE = 3;
     private int[] numbers = new int[SIZE];
 
-    {
-        Arrays.fill(numbers, 0);
-    }
-
     public Player(int[] numbers) {
-        setNumbers(numbers);
+        this.numbers = numbers;
+    };
+
+    public Player() {
+        this.numbers = setRandomNumbers();
     }
 
-    public Player() {};
+    public int[] setRandomNumbers() {
+        Set<Integer> set = new HashSet<>();
+        while (set.size() < SIZE) {
+            int number = (int) ((Math.random() * 9) + 1);
+            set.add(number);
+        }
+        List<Integer> list = new ArrayList<>(set);
+        Collections.shuffle(list);
 
-    public void setNumbers(int[] numbers) {
-        this.numbers = numbers;
+        for (int i = 0; i < SIZE; i++) {
+            numbers[i] = list.get(i);
+        }
+        return numbers;
     }
 
     public Map<String, Integer> getHint(int[] numbers) {
