@@ -16,4 +16,23 @@ public class Application {
         }
         return numbers;
     }
+
+    public boolean validateInput(String str) {
+        if (str.length() != Player.SIZE) {
+            return false;
+        }
+        for (int i = 0; i < Player.SIZE; i++) {
+            if (!(validateChar(str.charAt(i)))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean validateChar(char c) {
+        if ('1' <= c && c <= '9') {
+            return true;
+        }
+        return false;
+    }
 }
