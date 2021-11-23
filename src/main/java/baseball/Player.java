@@ -3,7 +3,7 @@ package baseball;
 import java.util.*;
 
 public class Player {
-    private static final int SIZE = 3;
+    static final int SIZE = 3;
     private List<Integer> numbers = new ArrayList<Integer>(SIZE);
 
     {
@@ -13,6 +13,8 @@ public class Player {
     public Player(List<Integer> numbers) {
         setNumbers(numbers);
     }
+
+    public Player() {};
 
     public void setNumbers(List<Integer> numbers) {
         this.numbers = numbers;
@@ -35,7 +37,7 @@ public class Player {
         if (numbers.contains(number)) {
             return isBallStrike(number, index);
         }
-        return "";
+        return "nothing";
     }
 
     public String isBallStrike(int number, int index) {
