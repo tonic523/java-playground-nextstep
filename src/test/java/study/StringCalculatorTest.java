@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,9 +31,13 @@ public class StringCalculatorTest {
     }
 
     @DisplayName("문자열 계산")
-    @Test
-    void stringCalculate() {
-        stringCalculator.saveInput("2 + 3 * 4 / 5");
-        assertThat(stringCalculator.stringCalculate()).isEqualTo(4);
+    @ParameterizedTest
+    @CsvSource(
+        value = {"2=2", "2 + 3 * 4 / 5=4", "2 + 3=5"},
+        delimiter = '='
+    )
+    void stringCalculate(String input, int result) {
+        stringCalculator.saveInput(input);
+        assertThat(stringCalculator.stringCalculate()).isEqualTo(result);
     }
 }
