@@ -30,12 +30,6 @@ public class StringPlusCalculator {
 		}
 	}
 
-	public static void validateIsNumbers(String[] input) {
-		for (String string : input) {
-			validateIsNumber(string);
-		}
-	}
-
 	public static int calculate(String input) {
 		int result = 0;
 		String[] delimiterExpression = getDelimiterExpression(input);
