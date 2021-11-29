@@ -1,7 +1,5 @@
 package racingCar;
 
-// - [ ] 1칸씩 위치를 이동할 수 있다.
-
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
@@ -22,6 +20,14 @@ public class CarTest {
 		Car car = new Car("car");
 		assertThat(car.getName()).isEqualTo("car");
 		assertThat(car.getPosition()).isEqualTo(0);
+	}
+
+	@DisplayName("1칸씩 위치 이동")
+	@Test
+	void move() {
+		Car car = new Car("car");
+		car.move();
+		assertThat(car.getPosition()).isEqualTo(1);
 	}
 
 }
