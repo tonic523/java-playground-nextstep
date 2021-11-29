@@ -1,5 +1,8 @@
 package racingCar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Game {
 
 	private static final String DELIMITER_NAME = ",";
@@ -34,7 +37,7 @@ public class Game {
 	}
 
 	public boolean moveOrStop() {
-		if ((int) (Math.random() * 2) == 1) {
+		if ((int)(Math.random() * 2) == 1) {
 			return true;
 		}
 		return false;
@@ -49,6 +52,17 @@ public class Game {
 			}
 		}
 		return result;
+	}
+
+	public Car[] getWinners() {
+		List<Car> winners = new ArrayList<>();
+		int position = getMaxCarPosition();
+		for (Car car : racingCars) {
+			if (car.getPosition() == position) {
+				winners.add(car);
+			}
+		}
+		return (Car[])winners.toArray();
 	}
 
 	public void validateIsNumber(String input) {
