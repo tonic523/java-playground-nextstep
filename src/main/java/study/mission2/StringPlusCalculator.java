@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class StringPlusCalculator {
 
-	private static final String DEFAULT_SPLIT = ",|:";
+	private static final String DEFAULT_DELIMITER = ",|:";
 
 	public static boolean isEmptyStringOrNull(String input) {
 		if (input == null) {
@@ -14,12 +14,12 @@ public class StringPlusCalculator {
 		return input.isEmpty();
 	}
 
-	public static String isCustomSplit(String input) {
+	public static String getDelimiter(String input) {
 		Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(input);
 		if (matcher.find()) {
 			return matcher.group(1);
 		}
-		return DEFAULT_SPLIT;
+		return DEFAULT_DELIMITER;
 	}
 
 	public static void validateIsNumber(String input) throws RuntimeException {

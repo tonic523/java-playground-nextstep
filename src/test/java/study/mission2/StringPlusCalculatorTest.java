@@ -14,11 +14,11 @@ public class StringPlusCalculatorTest {
 		assertThat(StringPlusCalculator.isEmptyStringOrNull(null)).isTrue();
 	}
 
-	@DisplayName("커스텀 구분자를 입력했는지 구분")
+	@DisplayName("커스텀 구분자가 있다면 구분자 반환 없다면 기본 구분자 반환")
 	@Test
-	void isCustomSplit() {
-		assertThat(StringPlusCalculator.isCustomSplit("//;\n")).isEqualTo(";");
-		assertThat(StringPlusCalculator.isCustomSplit("//;")).isEqualTo(",|:");
+	void getDelimiter() {
+		assertThat(StringPlusCalculator.getDelimiter("//;\n")).isEqualTo(";");
+		assertThat(StringPlusCalculator.getDelimiter("//;")).isEqualTo(",|:");
 	}
 
 	@DisplayName("문자열이 숫자가 아니면 예외 발생")
