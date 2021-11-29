@@ -15,4 +15,10 @@ public class StringPlusCalculator {
 		Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(input);
 		return matcher.find();
 	}
+
+	public static void validateIsNumber(String input) throws RuntimeException {
+		if (!(input.matches("[+-]?\\d*(\\.\\d+)?"))) {
+			throw new RuntimeException();
+		}
+	}
 }

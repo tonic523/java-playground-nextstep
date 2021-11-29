@@ -2,6 +2,7 @@ package study.mission2;
 
 import static org.assertj.core.api.Assertions.*;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -19,5 +20,13 @@ public class StringPlusCalculatorTest {
 	void isCustomSplit() {
 		assertThat(StringPlusCalculator.isCustomSplit("//;\n")).isTrue();
 		assertThat(StringPlusCalculator.isCustomSplit("//;")).isFalse();
+	}
+
+	@DisplayName("문자열이 숫자가 아니면 예외 발생")
+	@Test
+	void validateIsNumber() {
+		StringPlusCalculator.validateIsNumber("123");
+		Assertions.assertThatThrownBy(() -> StringPlusCalculator.validateIsNumber("a23"))
+			.isInstanceOf(RuntimeException.class);
 	}
 }
