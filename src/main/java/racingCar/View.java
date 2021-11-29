@@ -15,7 +15,7 @@ public class View {
 	public static void result(List<Car> cars) {
 		for (Car car : cars) {
 			String position = new String(new char[car.getPosition()]).replace("\0", "-");
-			System.out.println(car.getName() + " : " + position);
+			System.out.println(car + " : " + position);
 		}
 		System.out.println();
 	}

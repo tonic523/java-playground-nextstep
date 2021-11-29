@@ -18,7 +18,7 @@ public class CarTest {
 	@Test
 	void getNamePosition() {
 		Car car = new Car("car");
-		assertThat(car.getName()).isEqualTo("car");
+		assertThat(car.toString()).isEqualTo("car");
 		assertThat(car.getPosition()).isEqualTo(0);
 	}
 
