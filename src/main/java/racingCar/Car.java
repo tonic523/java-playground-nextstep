@@ -5,6 +5,7 @@ public class Car {
 	private static final int NAME_SIZE = 5;
 
 	private String name;
+	private int position = 0;
 
 	public Car(String name) {
 		validateNameSize(name);
@@ -16,4 +17,13 @@ public class Car {
 			throw new IllegalArgumentException();
 		}
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
 }
