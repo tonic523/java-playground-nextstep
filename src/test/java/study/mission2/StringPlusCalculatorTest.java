@@ -13,4 +13,11 @@ public class StringPlusCalculatorTest {
 		assertThat(StringPlusCalculator.isEmptyStringOrNull("")).isTrue();
 		assertThat(StringPlusCalculator.isEmptyStringOrNull(null)).isTrue();
 	}
+
+	@DisplayName("커스텀 구분자를 입력했는지 구분")
+	@Test
+	void isCustomSplit() {
+		assertThat(StringPlusCalculator.isCustomSplit("//;\n")).isTrue();
+		assertThat(StringPlusCalculator.isCustomSplit("//;")).isFalse();
+	}
 }
