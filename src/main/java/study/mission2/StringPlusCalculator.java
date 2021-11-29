@@ -25,7 +25,7 @@ public class StringPlusCalculator {
 	}
 
 	public static void validateIsNumber(String input) throws RuntimeException {
-		if (!(input.matches("[+-]?\\d*(\\.\\d+)?"))) {
+		if (!(input.matches("[+]?\\d*(\\.\\d+)?"))) {
 			throw new RuntimeException();
 		}
 	}

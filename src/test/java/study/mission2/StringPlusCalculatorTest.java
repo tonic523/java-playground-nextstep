@@ -35,18 +35,6 @@ public class StringPlusCalculatorTest {
 			.isInstanceOf(RuntimeException.class);
 	}
 
-	@DisplayName("문자열 리스트 중 숫자가 아닌게 있다면 예외 발생")
-	@Test
-	void validateIsNumbers() {
-		String[] input = {
-			"123",
-			"45a",
-			"789"
-		};
-		assertThatThrownBy(() -> StringPlusCalculator.validateIsNumbers(input))
-			.isInstanceOf(RuntimeException.class);
-	}
-
 	@DisplayName("구분자와 문자열로 숫자의 총합 구하기")
 	@Nested
 	class Calculate {
