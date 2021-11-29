@@ -40,6 +40,17 @@ public class Game {
 		return false;
 	}
 
+	public int getMaxCarPosition() {
+		int result = 0;
+		for (Car car : racingCars) {
+			int position = car.getPosition();
+			if (result < position) {
+				result = position;
+			}
+		}
+		return result;
+	}
+
 	public void validateIsNumber(String input) {
 		if (!(input.matches("[+]?\\d*(\\.\\d+)?"))) {
 			throw new IllegalArgumentException();
