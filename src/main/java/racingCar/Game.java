@@ -7,6 +7,7 @@ public class Game {
 	private static final String DELIMITER_NAME = ",";
 
 	private Car[] racingCars;
+	private int count;
 
 	public Game(String input) {
 		this.racingCars = convertCars(input.split(DELIMITER_NAME));
@@ -24,9 +25,14 @@ public class Game {
 		return racingCars;
 	}
 
-	public void setCount(String input) {
+	public void validateIsNumber(String input) {
 		if (!(input.matches("[+]?\\d*(\\.\\d+)?"))) {
 			throw new IllegalArgumentException();
 		}
+	}
+
+	public void setCount(String input) {
+		validateIsNumber(input);
+		count = Integer.parseInt(input);
 	}
 }
