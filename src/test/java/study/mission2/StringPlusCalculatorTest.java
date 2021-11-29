@@ -2,7 +2,6 @@ package study.mission2;
 
 import static org.assertj.core.api.Assertions.*;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -18,8 +17,8 @@ public class StringPlusCalculatorTest {
 	@DisplayName("커스텀 구분자를 입력했는지 구분")
 	@Test
 	void isCustomSplit() {
-		assertThat(StringPlusCalculator.isCustomSplit("//;\n")).isTrue();
-		assertThat(StringPlusCalculator.isCustomSplit("//;")).isFalse();
+		assertThat(StringPlusCalculator.isCustomSplit("//;\n")).isEqualTo(";");
+		assertThat(StringPlusCalculator.isCustomSplit("//;")).isEqualTo(",|:");
 	}
 
 	@DisplayName("문자열이 숫자가 아니면 예외 발생")
