@@ -35,4 +35,15 @@ public class StringPlusCalculator {
 			validateIsNumber(string);
 		}
 	}
+
+	public static int calculate(String input) {
+		int result = 0;
+		String[] delimiterExpression = getDelimiterExpression(input);
+		String[] numbers = delimiterExpression[1].split(delimiterExpression[0]);
+		for (String number : numbers) {
+			validateIsNumber(number);
+			result += Integer.parseInt(number);
+		}
+		return result;
+	}
 }

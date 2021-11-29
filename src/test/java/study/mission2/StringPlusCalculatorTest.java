@@ -3,6 +3,7 @@ package study.mission2;
 import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -46,5 +47,25 @@ public class StringPlusCalculatorTest {
 			.isInstanceOf(RuntimeException.class);
 	}
 
-	@DisplayName("")
+	@DisplayName("구분자와 문자열로 숫자의 총합 구하기")
+	@Nested
+	class Calculate {
+
+		@DisplayName("성공")
+		@ParameterizedTest
+		@ValueSource(strings = {"1:2:3", "//;\n1;2;3"})
+		void calculate(String testcase) {
+			assertThat(StringPlusCalculator.calculate(testcase)).isEqualTo(6);
+		}
+
+		@DisplayName("실패")
+		@ParameterizedTest
+		@ValueSource(strings = {"-1:1:2", "/;/m1;2;3"})
+		void fail(String testcase) {
+			assertThatThrownBy(() -> StringPlusCalculator.calculate(testcase))
+				.isInstanceOf(RuntimeException.class);
+		}
+	}
+
+
 }
