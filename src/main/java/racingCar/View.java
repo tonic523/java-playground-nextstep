@@ -21,6 +21,7 @@ public class View {
 	}
 
 	public static void winUI(List<Car> cars) {
-		System.out.println(cars.toString());
+		String winnerName = cars.toString();
+		System.out.println(winnerName.substring(1, winnerName.length()-1) + "가 최종 우승했습니다.");
 	}
 }
