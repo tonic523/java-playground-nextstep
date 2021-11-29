@@ -14,12 +14,14 @@ public class StringPlusCalculator {
 		return input.isEmpty();
 	}
 
-	public static String getDelimiter(String input) {
+	public static String[] getDelimiterExpression(String input) {
+		String[] result = {DEFAULT_DELIMITER, input};
 		Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(input);
 		if (matcher.find()) {
-			return matcher.group(1);
+			result[0] = matcher.group(1);
+			result[1] = matcher.group(2);
 		}
-		return DEFAULT_DELIMITER;
+		return result;
 	}
 
 	public static void validateIsNumber(String input) throws RuntimeException {

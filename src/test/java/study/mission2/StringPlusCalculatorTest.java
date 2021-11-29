@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class StringPlusCalculatorTest {
 
@@ -14,11 +16,14 @@ public class StringPlusCalculatorTest {
 		assertThat(StringPlusCalculator.isEmptyStringOrNull(null)).isTrue();
 	}
 
-	@DisplayName("커스텀 구분자가 있다면 구분자 반환 없다면 기본 구분자 반환")
+	@DisplayName("입력된 문자열을 구분자, 식으로 분리")
 	@Test
-	void getDelimiter() {
-		assertThat(StringPlusCalculator.getDelimiter("//;\n")).isEqualTo(";");
-		assertThat(StringPlusCalculator.getDelimiter("//;")).isEqualTo(",|:");
+	void getDelimiterExpression() {
+		String input = "//;\n1;2;3";
+		String[] actual = StringPlusCalculator.getDelimiterExpression(input);
+		assertThat(actual[0]).isEqualTo(";");
+		assertThat(actual[1]).isEqualTo("1;2;3");
+
 	}
 
 	@DisplayName("문자열이 숫자가 아니면 예외 발생")
