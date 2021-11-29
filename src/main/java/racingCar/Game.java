@@ -23,4 +23,10 @@ public class Game {
 	public Car[] getAllCars() {
 		return racingCars;
 	}
+
+	public void setCount(String input) {
+		if (!(input.matches("[+]?\\d*(\\.\\d+)?"))) {
+			throw new IllegalArgumentException();
+		}
+	}
 }
