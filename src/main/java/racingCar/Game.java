@@ -1,7 +1,5 @@
 package racingCar;
 
-import java.util.Map;
-
 public class Game {
 
 	private static final String DELIMITER_NAME = ",";
@@ -21,14 +19,35 @@ public class Game {
 		return racingCars;
 	}
 
-	public Car[] getAllCars() {
-		return racingCars;
+	public void play() {
+		for (int i = 0; i < count; i++) {
+			carsMove();
+		}
+	}
+
+	public void carsMove() {
+		for (Car car : racingCars) {
+			if (moveOrStop()) {
+				car.move();
+			}
+		}
+	}
+
+	public boolean moveOrStop() {
+		if ((int) (Math.random() * 2) == 1) {
+			return true;
+		}
+		return false;
 	}
 
 	public void validateIsNumber(String input) {
 		if (!(input.matches("[+]?\\d*(\\.\\d+)?"))) {
 			throw new IllegalArgumentException();
 		}
+	}
+
+	public Car[] getAllCars() {
+		return racingCars;
 	}
 
 	public void setCount(String input) {

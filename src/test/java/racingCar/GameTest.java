@@ -1,8 +1,5 @@
 package racingCar;
 
-// 	- [ ] 회수마다 움직일 자동차를 랜덤으로 선정한다.
-// 	- [ ] 경주하는 자동차 중 가장 많이 전진한 위치 값을 구한다.
-// 	- [ ] 경주하는 자동차 중 많이 전진한 위치 값을 기준으로 우승자 리스트를 구한다.
 
 import static org.assertj.core.api.Assertions.*;
 
