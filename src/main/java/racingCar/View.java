@@ -1,5 +1,7 @@
 package racingCar;
 
+import java.util.List;
+
 public class View {
 
 	public static void carInputUI() {
@@ -10,14 +12,15 @@ public class View {
 		System.out.println("시도할 회수는 몇회인가요?");
 	}
 
-	public static void result(Car[] cars) {
+	public static void result(List<Car> cars) {
 		for (Car car : cars) {
 			String position = new String(new char[car.getPosition()]).replace("\0", "-");
 			System.out.println(car.getName() + " : " + position);
 		}
+		System.out.println();
 	}
 
-	public static void winUI(Car[] cars) {
-		System.out.println(cars);
+	public static void winUI(List<Car> cars) {
+		System.out.println(cars.toString());
 	}
 }
