@@ -21,4 +21,10 @@ public class StringPlusCalculator {
 			throw new RuntimeException();
 		}
 	}
+
+	public static void validateIsNumbers(String[] input) {
+		for (String string : input) {
+			validateIsNumber(string);
+		}
+	}
 }

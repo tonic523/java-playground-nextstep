@@ -26,7 +26,19 @@ public class StringPlusCalculatorTest {
 	@Test
 	void validateIsNumber() {
 		StringPlusCalculator.validateIsNumber("123");
-		Assertions.assertThatThrownBy(() -> StringPlusCalculator.validateIsNumber("a23"))
+		assertThatThrownBy(() -> StringPlusCalculator.validateIsNumber("a23"))
+			.isInstanceOf(RuntimeException.class);
+	}
+
+	@DisplayName("문자열 리스트 중 숫자가 아닌게 있다면 예외 발생")
+	@Test
+	void validateIsNumbers() {
+		String[] input = {
+			"123",
+			"45a",
+			"789"
+		};
+		assertThatThrownBy(() -> StringPlusCalculator.validateIsNumbers(input))
 			.isInstanceOf(RuntimeException.class);
 	}
 }
