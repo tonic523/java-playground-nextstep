@@ -45,4 +45,6 @@ public class StringPlusCalculatorTest {
 		assertThatThrownBy(() -> StringPlusCalculator.validateIsNumbers(input))
 			.isInstanceOf(RuntimeException.class);
 	}
+
+	@DisplayName("")
 }
