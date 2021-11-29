@@ -7,24 +7,12 @@ public class Game {
 
 	private static final String DELIMITER_NAME = ",";
 
-	private Car[] racingCars;
-	private int count;
+	private List<Car> racingCars = new ArrayList<>();
 
 	public Game(String input) {
-		this.racingCars = convertCars(input.split(DELIMITER_NAME));
-	}
-
-	private Car[] convertCars(String[] cars) {
-		Car[] racingCars = new Car[cars.length];
-		for (int i = 0; i < cars.length; i++) {
-			racingCars[i] = new Car(cars[i]);
-		}
-		return racingCars;
-	}
-
-	public void play() {
-		for (int i = 0; i < count; i++) {
-			carsMove();
+		String[] carNames = input.split(DELIMITER_NAME);
+		for (String carName : carNames) {
+			racingCars.add(new Car(carName));
 		}
 	}
 
@@ -43,7 +31,7 @@ public class Game {
 		return false;
 	}
 
-	public int getMaxCarPosition() {
+	private int getMaxCarPosition() {
 		int result = 0;
 		for (Car car : racingCars) {
 			int position = car.getPosition();
@@ -54,7 +42,7 @@ public class Game {
 		return result;
 	}
 
-	public Car[] getWinners() {
+	public List<Car> getWinners() {
 		List<Car> winners = new ArrayList<>();
 		int position = getMaxCarPosition();
 		for (Car car : racingCars) {
@@ -62,7 +50,7 @@ public class Game {
 				winners.add(car);
 			}
 		}
-		return (Car[])winners.toArray();
+		return winners;
 	}
 
 	public void validateIsNumber(String input) {
@@ -71,12 +59,7 @@ public class Game {
 		}
 	}
 
-	public Car[] getAllCars() {
+	public List<Car> getAllCars() {
 		return racingCars;
-	}
-
-	public void setCount(String input) {
-		validateIsNumber(input);
-		count = Integer.parseInt(input);
 	}
 }

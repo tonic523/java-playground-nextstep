@@ -13,16 +13,7 @@ public class GameTest {
 	void participateCars() {
 		String input = "car1,car2,car3";
 		Game game = new Game(input);
-		assertThat(game.getAllCars().length).isEqualTo(3);
-	}
-
-	@DisplayName("입력한 회수가 숫자인지 검사")
-	@Test
-	void validateIsNumber() {
-		Game game = new Game("car");
-		game.setCount("1");
-		assertThatThrownBy(() -> game.setCount("a"))
-			.isInstanceOf(IllegalArgumentException.class);
+		assertThat(game.getAllCars().size()).isEqualTo(3);
 	}
 
 }
