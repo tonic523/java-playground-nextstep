@@ -53,12 +53,6 @@ public class Game {
 		return winners;
 	}
 
-	public void validateIsNumber(String input) {
-		if (!(input.matches("[+]?\\d*(\\.\\d+)?"))) {
-			throw new IllegalArgumentException();
-		}
-	}
-
 	public List<Car> getAllCars() {
 		return racingCars;
 	}
