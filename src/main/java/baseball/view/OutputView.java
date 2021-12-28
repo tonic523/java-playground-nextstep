@@ -4,8 +4,10 @@ import baseball.domain.Hint;
 
 import static baseball.domain.BallType.*;
 
-public class HintView {
-	public static void UI(Hint hint) {
+public class OutputView {
+
+	// 낫싱일 때 고려
+	public static void hintUI(Hint hint) {
 		String print = "";
 		if (hint.ball() != 0) {
 			print += hint.ball() + BALL.getName() + " ";

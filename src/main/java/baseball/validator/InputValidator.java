@@ -8,4 +8,12 @@ public class InputValidator {
 			throw new IllegalArgumentException();
 		}
 	}
+
+	public static void isOneOrTwo(String request) {
+		isNumber(request);
+		Integer number = Integer.parseInt(request);
+		if (number != 1 && number != 2) {
+			throw new IllegalArgumentException();
+		}
+	}
 }
