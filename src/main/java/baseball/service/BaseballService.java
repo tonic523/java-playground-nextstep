@@ -16,7 +16,11 @@ public class BaseballService {
 		return new Baseball(new ArrayList<>(baseballSet));
 	}
 
-	public Baseball createBaseball(List<Integer> numbers) {
+	public Baseball toBaseball(String numberString) {
+		List<Integer> numbers = new ArrayList<>();
+		for (char c : numberString.toCharArray()) {
+			numbers.add(c - '0');
+		}
 		return new Baseball(numbers);
 	}
 }

@@ -5,6 +5,8 @@ import java.util.Arrays;
 import baseball.domain.Baseball;
 import baseball.service.BaseballService;
 import baseball.service.HintService;
+import baseball.validator.InputValidator;
+import baseball.view.ExceptionView;
 import baseball.view.InputView;
 
 public class GameController {
@@ -16,7 +18,17 @@ public class GameController {
 
 	public void start() {
 		Baseball computer = baseballService.createRandomBaseball();
-		String request = InputView.requestBaseball();
+		Baseball user = requestBaseball();
+	}
 
+	public Baseball requestBaseball() {
+		try {
+			String request = InputView.requestBaseball();
+			InputValidator.isNumber(request);
+			return baseballService.toBaseball(request);
+		} catch (IllegalArgumentException e) {
+			ExceptionView.UI(e);
+			return requestBaseball();
+		}
 	}
 }

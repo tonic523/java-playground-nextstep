@@ -22,7 +22,7 @@ public class BaseballServiceTest {
 	@DisplayName("입력된 숫자리스트로 숫자야구 생성")
 	@Test
 	void createBaseball() {
-		Baseball baseball = baseballService.createBaseball(Arrays.asList(1, 2, 3));
+		Baseball baseball = baseballService.toBaseball("123");
 		Integer[] actual = baseball.getNumbers();
 		assertThat(actual[0]).isEqualTo(1);
 		assertThat(actual[1]).isEqualTo(2);
