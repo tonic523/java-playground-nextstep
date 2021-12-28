@@ -10,11 +10,21 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
 public class BaseBallTest {
-	@DisplayName("숫자야구는 3개의 숫자여야 한다.")
+	@DisplayName("3개의 숫자여야 한다.")
 	@Test
 	void validateSize() {
 		List<Integer> successCase = new ArrayList<>(Arrays.asList(1, 2, 3));
 		List<Integer> failCase = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+		new Baseball(successCase);
+		assertThatThrownBy(() -> new Baseball(failCase))
+			.isInstanceOf(IllegalArgumentException.class);
+	}
+
+	@DisplayName("각 숫자의 범위는 1~9")
+	@Test
+	void validateNumberRange() {
+		List<Integer> successCase = new ArrayList<>(Arrays.asList(1, 2, 3));
+		List<Integer> failCase = new ArrayList<>(Arrays.asList(0, 1, 2));
 		new Baseball(successCase);
 		assertThatThrownBy(() -> new Baseball(failCase))
 			.isInstanceOf(IllegalArgumentException.class);
