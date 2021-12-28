@@ -29,4 +29,14 @@ public class BaseBallTest {
 		assertThatThrownBy(() -> new Baseball(failCase))
 			.isInstanceOf(IllegalArgumentException.class);
 	}
+
+	@DisplayName("중복된 값은 없어야 한다.")
+	@Test
+	void validateDuplication() {
+		List<Integer> successCase = new ArrayList<>(Arrays.asList(1, 2, 3));
+		List<Integer> failCase = new ArrayList<>(Arrays.asList(1, 1, 2));
+		new Baseball(successCase);
+		assertThatThrownBy(() -> new Baseball(failCase))
+			.isInstanceOf(IllegalArgumentException.class);
+	}
 }

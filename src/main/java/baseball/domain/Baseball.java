@@ -13,6 +13,8 @@ public class Baseball {
 	public Baseball(List<Integer> numbers) {
 		validateSize(numbers);
 		validateNumberRange(numbers);
+		validateDuplication(numbers);
+		baseball.addAll(numbers);
 	}
 
 	private void validateSize(List<Integer> numbers) {
@@ -24,6 +26,12 @@ public class Baseball {
 	private void validateNumberRange(List<Integer> numbers) {
 		if (!numbers.stream()
 			.allMatch(NUMBER_RANGE)) {
+			throw new IllegalArgumentException();
+		}
+	}
+
+	private void validateDuplication(List<Integer> numbers) {
+		if (numbers.stream().distinct().count() != 3) {
 			throw new IllegalArgumentException();
 		}
 	}
