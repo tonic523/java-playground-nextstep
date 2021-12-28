@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class Baseball {
-	private static final int SIZE = 3;
+	public static final int SIZE = 3;
 	private static final Predicate<Integer> NUMBER_RANGE = n -> 1 <= n && n <= 9;
 
 	private final List<Integer> baseball = new ArrayList<>();
@@ -34,5 +34,9 @@ public class Baseball {
 		if (numbers.stream().distinct().count() != 3) {
 			throw new IllegalArgumentException();
 		}
+	}
+
+	public Integer[] getNumbers() {
+		return baseball.toArray(new Integer[SIZE]);
 	}
 }

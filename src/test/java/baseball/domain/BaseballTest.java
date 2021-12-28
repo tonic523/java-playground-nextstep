@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class BaseBallTest {
+public class BaseballTest {
 	@DisplayName("3개의 숫자여야 한다.")
 	@Test
 	void validateSize() {
