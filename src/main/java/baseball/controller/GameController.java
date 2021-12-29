@@ -10,10 +10,9 @@ import baseball.view.OutputView;
 import baseball.view.InputView;
 
 public class GameController {
-	private static final boolean PLAY = true;
 	private static final int THREE_STRIKE = 3;
-	private static final int RESTART = 1;
-	private static final int END = 2;
+	private static final boolean RESTART = true;
+	private static final boolean END = false;
 
 	private final BaseballService baseballService = new BaseballService();
 	private final HintService hintService = new HintService();
@@ -27,14 +26,13 @@ public class GameController {
 	}
 
 	public void start() {
-		while (PLAY) {
-			Baseball user = requestBaseball();
-			Hint hint = hintService.createHint(computer, user);
-			if (hint.strike() == THREE_STRIKE) {
-				break;
-			}
-			OutputView.hintUI(hint);
+		Baseball user = requestBaseball();
+		Hint hint = hintService.createHint(computer, user);
+		if (hint.strike() == THREE_STRIKE) {
+			return;
 		}
+		OutputView.hintUI(hint);
+		start();
 	}
 
 	public Baseball requestBaseball() {
@@ -53,13 +51,17 @@ public class GameController {
 			String request = InputView.requestChoicePlay();
 			InputValidator.isOneOrTwo(request);
 			int number = Integer.parseInt(request);
-			if (number == 1) {
-				return true;
-			}
-			return false;
+			return toRestartOrEnd(number);
 		} catch (IllegalArgumentException e) {
 			ExceptionView.UI(e);
 			return choicePlay();
 		}
+	}
+
+	private boolean toRestartOrEnd(int number) {
+		if (number == 1) {
+			return RESTART;
+		}
+		return END;
 	}
 }
